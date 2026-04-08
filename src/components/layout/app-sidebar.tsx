@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HardDrive } from "lucide-react";
+import { HardDrive, LogOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -47,6 +49,18 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter className="border-t">
+        <form action="/api/auth/logout" method="post">
+          <Button
+            type="submit"
+            variant="ghost"
+            className="w-full justify-start gap-2"
+          >
+            <LogOut className="h-4 w-4" />
+            <span>Sign Out</span>
+          </Button>
+        </form>
+      </SidebarFooter>
     </Sidebar>
   );
 }
